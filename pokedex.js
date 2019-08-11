@@ -1,4 +1,4 @@
-const pokedex ='https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
+const pokedex ='pokedex.json';
 const pokemons = [];
 
 fetch(pokedex)
@@ -8,7 +8,7 @@ fetch(pokedex)
 function findPokemon(searchPokemon, pokemons){
   return pokemons.filter(pokemon => {
     const regex = new RegExp(searchPokemon, 'gi');
-    pokemon.name.match(regex);
+    return pokemon.name.match(regex);
   });
 }
 
@@ -19,7 +19,8 @@ function showResult() {
     <li>
     <img src='${pokemon.img}' width='42' height='42'>
     <span>${pokemon.name}</span>
-    <span>${pokemon.width}</span>
+    <span>${pokemon.weight}</span>
+    <span>${pokemon.height}</span>
     </li>
     `;
   }).join('');
